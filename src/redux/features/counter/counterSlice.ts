@@ -13,16 +13,18 @@ const initialState: CounterState = {
 
 export const counterSlice = createSlice({
   name: 'counter',
-  // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
     increment: state => {
       state.value += 1
     },
     decrement: state => {
-      state.value -= 1
+      if (state.value >= 0){
+          state.value -= 1 
+      } else if (state.value < 0){
+        state.value = 0
+      }
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
     }
