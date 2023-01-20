@@ -1,23 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 function App() {
+  const renderFlag = (flag: string) => {
+    return <span className={`fi fi-${flag} fis`}></span>;
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='App'>
+      <header className='App-header'>
+        <span className='fi fi-gr'></span> {renderFlag("fr")}
       </header>
     </div>
   );
