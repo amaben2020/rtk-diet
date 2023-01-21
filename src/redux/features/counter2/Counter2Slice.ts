@@ -4,7 +4,6 @@ import { RootState } from "../../store";
 const initialState = {
   value: 0
 }
-
 export const counterSlice2 = createSlice({
   name: "counter2",
   initialState,
@@ -18,9 +17,8 @@ export const counterSlice2 = createSlice({
           }  
             state.value = 0
         },
-
       incrementByPayload: (state, action )=> {
-       state.value += action.payload
+state.value += action.payload
   }
   }
 })
