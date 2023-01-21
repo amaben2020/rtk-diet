@@ -6,17 +6,18 @@ const api = axios.create({
   baseURL:
     process.env.NODE_ENV === 'production'
       ? process.env.REACT_APP_URL
-      : 'http://localhost:5000/',
+      : 'http://localhost:3004/',
 });
 export default api;
 
 
-// export const EndPoints = {
-//   sales: 'sales',
-//   products: 'products',
-//   events: 'events',
-//   login: 'login',
-//   register: 'register',
-//   users: 'users',
-//   usersDb: 'users-db',
-// };
+export const EndPoints = {
+  sales: 'sales',
+  products: 'products',
+  events: 'events',
+  login: 'login',
+  register: 'register',
+  users: 'users',
+  posts: 'posts',
+  usersDb: 'users-db',
+};

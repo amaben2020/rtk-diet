@@ -2026,5 +2026,17 @@
       "popularity": "low",
       "brand": "Bahringer, Effertz and Kulas"
     }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "body": "This is a test post",
+      "excerpt": "This is a test post"
+    },
+    {
+      "id": "3",
+      "body": "Some post created",
+      "excerpt": "Excerpt"
+    }
   ]
 }

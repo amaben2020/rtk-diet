@@ -5,6 +5,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useAppSelector, useAppDispatch } from "./redux/hooks/hooks";
 import { selectCount2 } from "./redux/features/counter2/Counter2Slice";
 import { createUser, getUser } from "./redux/features/user/UserSlice";
+import { CreatePost } from "./redux/features/user/services/Async";
 
 import {
   incrementByPayload,
@@ -19,7 +20,11 @@ function App() {
   const dispatch = useAppDispatch();
   const [state, setState] = useState(0);
 
-  const [user, setUser] = useState();
+  const [post, setPost] = useState({
+    id: 2,
+    body: "",
+    excerpt: "",
+  });
 
   const renderFlag = (flag: string) => {
     return <span className={`fi fi-${flag} fis`}></span>;
@@ -32,6 +37,18 @@ function App() {
   useEffect(() => {
     dispatch(getUser(userInfo.users));
   }, [dispatch]);
+
+  const handlePostChange = (event: any) => {
+    setPost({
+      ...post,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handlePostSubmit = (event: any) => {
+    event.preventDefault();
+    dispatch(CreatePost(post));
+  };
 
   return (
     <div className='App'>
@@ -63,6 +80,28 @@ function App() {
               <li>{user.email}</li>
             </ul>
           ))}
+          <form onSubmit={handlePostSubmit}>
+            <input
+              type='number'
+              name='id'
+              onChange={handlePostChange}
+              value={post.id}
+            />
+            <input
+              type='text'
+              name='body'
+              onChange={handlePostChange}
+              value={post.body}
+            />
+            <input
+              type='text'
+              name='excerpt'
+              onChange={handlePostChange}
+              value={post.excerpt}
+            />
+
+            <button type='submit'>Submit</button>
+          </form>
         </div>
       </header>
     </div>

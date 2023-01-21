@@ -9,7 +9,7 @@ export const store = configureStore({
     counter: counterReducer,
     counterSlice2: counterReducer2,
     user: userSlice,
-    post: postSlice
+    posts: postSlice
   },
 });
 
