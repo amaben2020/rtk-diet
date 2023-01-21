@@ -5,7 +5,7 @@ export const GetPosts = createAsyncThunk(
 "post/getPosts", async () => await api.get(`posts`)
 );
 
-interface IPost{
+export interface IPost{
   id: number,
   body: string,
   excerpt: string

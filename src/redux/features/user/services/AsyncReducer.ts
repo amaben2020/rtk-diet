@@ -33,7 +33,7 @@ extraReducers: {
       state.posts = [];
       state.error = 'Something went wrong'
       },
-   [UpdatePost.fulfilled]: (state, action) => {
+    [UpdatePost.fulfilled]: (state, action) => {
       const updateUser = (array, id, data) => {
         const objectID = array.findIndex((elem) => elem.id === id);
         const objectToUpdate = array[objectID];
