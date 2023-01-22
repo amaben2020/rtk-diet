@@ -1,12 +1,21 @@
 import { useState, useEffect } from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import { useAppSelector, useAppDispatch } from "./redux/hooks/hooks";
 import { selectCount2 } from "./redux/features/counter2/Counter2Slice";
 import { createUser, getUser } from "./redux/features/user/UserSlice";
 import { CreatePost, IPost } from "./redux/features/user/services/Async";
-import { fetchProducts } from "./redux/features/user/services/products/async";
+import {
+  fetchClap,
+  updateClap,
+} from "./redux/features/medium/services/mediumServices";
+
+import {
+  fetchProducts,
+  updateProducts,
+} from "./redux/features/user/services/products/async";
+
 import {
   incrementByPayload,
   incrementCount,
@@ -22,10 +31,11 @@ function App() {
 
   const dispatch = useAppDispatch();
   const [state, setState] = useState(0);
+  const [stateProds, setStateProds] = useState();
 
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+  const medium = useAppSelector((state) => state.medium);
+
+  console.log("medium ", medium);
 
   const [post, setPost] = useState({
     id: 2,
@@ -43,6 +53,11 @@ function App() {
 
   useEffect(() => {
     dispatch(getUser(userInfo.users));
+    dispatch(fetchClap());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
   }, [dispatch]);
 
   useEffect(() => {
@@ -65,9 +80,32 @@ function App() {
     }
   };
 
-  const getProductToUpdate = (id: any) => {
-    console.log("selected", id);
-    return id;
+  const getProductToUpdate = (product: any) => {
+    console.log("selected", product);
+
+    dispatch(
+      updateProducts({
+        id: 2,
+        description: "Redesigned from scratch and completely revised",
+        name: "Homepods",
+        image: "/assets/images/homepod.png",
+        coverPhoto: "http://loremflickr.com/640/480/cats",
+        featured: false,
+        address: "0871 Kreiger Groves",
+        createdAt: "2022-01-10T19:24:45.765Z",
+        updatedAt: "2021-07-03T07:42:53.193Z",
+        year: 2021,
+        category: "desktop",
+        shipping: "paid",
+        price: "867.00",
+        status: "approved",
+        rating: 4,
+        reviews: 99,
+        popularity: "high",
+        brand: "Thiel and Benneth and Shidrens",
+      })
+    );
+    window.location.reload();
   };
 
   return (
@@ -134,8 +172,25 @@ function App() {
             {products.status === "loading" && <p>Loading ...... </p>}
             {products.products.slice(0, 4).map((product: any) => (
               <ul>
-                <li onClick={() => getProductToUpdate(product?.id)}>
+                <li onClick={() => getProductToUpdate(product)}>
                   {product.name}
+                </li>
+              </ul>
+            ))}
+          </div>
+          <div>UPDATE PRODUCT:</div>
+          <div>
+            Medium Clap:
+            {medium?.stories.map((story: any) => (
+              <ul>
+                <li>{story.name}</li>
+                <li
+                  onClick={() => {
+                    dispatch(updateClap(story));
+                    // window.location.reload();
+                  }}
+                >
+                  {story.claps}
                 </li>
               </ul>
             ))}

@@ -1,6 +1,6 @@
 //@ts-nocheck
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProducts } from "./async";
+import { fetchProducts, updateProducts } from "./async";
 
 const initialState = {
   status: "",
@@ -25,6 +25,21 @@ export const productsSlice = createSlice({
       })
       builder
       .addCase(fetchProducts.rejected, (state, action) => {
+        state.status = 'error'
+        state.products = []
+      })
+
+      builder
+      .addCase(updateProducts.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      builder
+      .addCase(updateProducts.fulfilled, (state, action) => {
+        state.status = 'false'
+       state.products = [...state.products, action.payload.data]
+      })
+      builder
+      .addCase(updateProducts.rejected, (state, action) => {
         state.status = 'error'
         state.products = []
       })

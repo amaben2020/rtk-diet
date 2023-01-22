@@ -4,6 +4,7 @@ import counterReducer2 from "./features/counter2/Counter2Slice";
 import userSlice from "./features/user/UserSlice";
 import postSlice from "./features/user/services/AsyncReducer";
 import productsSlice from "./features/user/services/products/productReducer";
+import mediumSlice from "./features/medium/asyncMReducer";
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     counterSlice2: counterReducer2,
     user: userSlice,
     posts: postSlice,
-    products: productsSlice
+    products: productsSlice,
+    medium: mediumSlice,
   },
 });
 

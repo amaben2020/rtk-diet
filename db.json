@@ -25,6 +25,26 @@
       "image": ""
     }
   ],
+  "stories": [
+    {
+      "id": 1,
+      "name": "TypeScript — What is it all about?",
+      "claps": 701,
+      "route": "https://levelup.gitconnected.com/typescript-what-is-it-all-about-4c9dea82cd32"
+    },
+    {
+      "id": 2,
+      "name": "JavaScript — A brief introduction",
+      "claps": 164,
+      "route": "https://medium.com/@abongsjoel/javascript-a-brief-introduction-e995ae5a2494"
+    },
+    {
+      "id": 3,
+      "name": "Redux — A birds-eye view",
+      "claps": 118,
+      "route": "https://levelup.gitconnected.com/redux-a-birds-eye-view-58925fc5ee8"
+    }
+  ],
   "products": [
     {
       "id": 0,
@@ -69,7 +89,7 @@
     {
       "id": 2,
       "description": "Redesigned from scratch and completely revised",
-      "name": "Homepod",
+      "name": "Homepods",
       "image": "/assets/images/homepod.png",
       "coverPhoto": "http://loremflickr.com/640/480/cats",
       "featured": false,
@@ -84,7 +104,7 @@
       "rating": 4,
       "reviews": 99,
       "popularity": "high",
-      "brand": "Thiel and Sons"
+      "brand": "Thiel and Benneth and Shidrens"
     },
     {
       "id": 3,
@@ -1847,24 +1867,8 @@
       "brand": "Wolff, Klein and Watsica"
     },
     {
-      "id": 91,
-      "description": "Redesigned from scratch and completely revised",
-      "name": "Edmond Aufderhar",
-      "image": "http://loremflickr.com/300/200/fashion?63220",
-      "coverPhoto": "http://loremflickr.com/640/480/business",
-      "featured": true,
-      "address": "326 Mac Lakes",
-      "createdAt": "2021-09-04T08:48:36.013Z",
-      "updatedAt": "2021-07-08T19:15:47.760Z",
-      "year": 2021,
-      "category": "web",
-      "shipping": "paid",
-      "price": "708.00",
-      "status": "rejected",
-      "rating": 2,
-      "reviews": 63,
-      "popularity": "high",
-      "brand": "Rippin LLC"
+      "name": "Edmond Hitler",
+      "id": 91
     },
     {
       "id": 92,
